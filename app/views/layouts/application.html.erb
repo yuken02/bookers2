@@ -55,7 +55,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "/", class: 'nav-link text-white' do %>
+                  <%= link_to "about_path", class: 'nav-link text-white' do %>
                     <i class="fas fa-link"></i>
                     About
                   <% end %>
@@ -79,7 +79,7 @@
       </nav>
     </header>
 
-    <main class="mb-auto">
+    <main>
       <%= yield %>
     </main>
 
