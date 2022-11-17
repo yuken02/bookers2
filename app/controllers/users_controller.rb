@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
+  def new
+  end
+
   def show
-    @user = User.find(current_user.id)
+    @user_info = User.find(current_user.id)
   end
 
   def edit
@@ -11,7 +14,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
 
 end
