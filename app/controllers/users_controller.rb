@@ -20,7 +20,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    is_matching_login_user
     @user = User.find(params[:id])
     if @user.update(user_update_params)
       flash[:notice] = "You have updated user successfully."
@@ -33,9 +32,9 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
-  end
+  # def user_params
+  #   params.require(:user).permit(:name, :introduction, :profile_image)
+  # end
 
   def user_update_params
     params.require(:user).permit(:name, :introduction, :profile_image)
