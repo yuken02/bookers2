@@ -3,6 +3,20 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>Editing Book</h1>
+
+      <% if @book.errors.any? %>
+        <div id="error_explamation">
+          <h3 class="alert-heading">
+            <%= @book.errors.count %> errors prohibited this obj from being saved:
+          </h3>
+          <ul class="" role="alert">
+              <% @book.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <%= form_with model: @book do |f| %>
         <div class="form-group">
           <%= f.label :title %>

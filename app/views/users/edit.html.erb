@@ -3,6 +3,20 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>User info</h1>
+
+      <% if @user.errors.any? %>
+        <div id="error_explamation">
+          <h3 class="alert-heading">
+            <%= @user.errors.count %> errors prohibited this obj from being saved:
+          </h3>
+          <ul class="" role="alert">
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <%= form_with model: @user do |f| %>
         <div class="form-group">
           <%= f.label :name %>
