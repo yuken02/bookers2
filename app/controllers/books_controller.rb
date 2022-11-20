@@ -11,7 +11,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
-      @user_info = User.find(current_user.id)
+      @user = User.find(current_user.id)
       render :index
     end
   end
@@ -19,13 +19,13 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-    @user_info = User.find(current_user.id)
+    @user = User.find(current_user.id)
   end
 
   def show
     @book = Book.new
-    @book_show = Book.find(params[:id])
-    @user_info = User.find(current_user.id)
+    @books = Book.find(params[:id])
+    @user = @books.user
   end
 
   def edit
